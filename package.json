@@ -1,0 +1,50 @@
+{
+   "name": "sencha_servo",
+   "version": "0.0.1",
+   "description": "iPhone-ready interface for controlling an arduino servo in real-time",
+   "keywords": [
+       "socket.io", "basic", "express", "arduino", "servo"
+   ],
+   "maintainers": [
+       {
+           "name": "Daniel Lewis",
+           "email": "tetsuharu@gmail.com",
+           "web": "http://www.familab.org/" 
+       } 
+   ],
+   "contributors": [
+       {
+           "name": "Daniel Lewis",
+           "email": "tetsuharu@gmail.com.com",
+           "web": "http://www.familab.org/" 
+       } 
+   ],
+   "bugs": {
+       "email": "tetsuharu@gmail.com",
+       "web": "http://www.familab.org" 
+   },
+   "licenses": [
+       {
+           "type": "GPLv2",
+           "url": ""
+       } 
+   ],
+   "repositories": [
+       {
+           "type": "git",
+           "url": "git@github.com:daniel-cloudspace/sencha_servo.git" 
+       } 
+   ],
+   "dependencies": {
+       "socket.io": "0.8.5",
+       "express": "2.4.7",
+       "serialport": "0.3.0"
+   },
+   "os": ["linux"],
+   "cpu": ["x86", "x86_64"],
+   "engines": ["v8", "node"],
+   "scripts": {
+   },
+   "directories": {
+   } 
+}

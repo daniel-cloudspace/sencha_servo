@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+    <title>Forms</title>
+    <link rel="stylesheet" href="sencha-touch.css" type="text/css">
+    <script type="text/javascript" src="sencha-touch.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+    window.addEventListener('load', function() {
+        // Start Socket.IO
+        var socket = io.connect();
+
+        // Set up slider in form
+        // // because i dont know how to set up a slider on its own
+        Ext.setup({
+            onReady: function() {
+               var form;
+        
+               var formBase = {
+                   items: [
+                   {
+                       xtype: 'sliderfield',
+                       name : 'servo',
+                       label: 'Servo',
+                       listeners: { drag: function(a,b,c) { 
+                            // send slider value to the server on slide
+                            socket.emit('slider', { value: c } );
+                       } }
+                   }]
+        
+               };
+        
+                if (Ext.is.Phone) {
+                    formBase.fullscreen = true;
+                } else {
+                    Ext.apply(formBase, {
+                        autoRender: true,
+                        floating: true,
+                        modal: true,
+                        centered: true,
+                        hideOnMaskTap: false,
+                        height: 385,
+                        width: 480
+                    });
+                }
+        
+                form = new Ext.form.FormPanel(formBase);
+                window.r = form;
+                form.show();
+            }
+        });
+
+   });
+   </script>
+<style type="text/css">	
+.demos-loading {
+  background: rgba(0,0,0,.3) url(../resources/shared/loading.gif) center center no-repeat;
+  display: block;
+  width: 10em;
+  height: 10em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -5em;
+  margin-top: -5em;  
+  -webkit-border-radius: .5em;
+  color: #fff;
+  text-shadow: #000 0 1px 1px;
+  text-align: center;
+  padding-top: 8em;
+  font-weight: bold;
+}
+</style>
+</head>
+<body></body>
+</html>
